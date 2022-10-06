@@ -1,0 +1,27 @@
+<div>
+	<%for(var item of page.posts.data){%>
+	<%
+	 var img=item.content.match(/<img src="(.*?)"/)
+	 var thumbnail=item.thumbnail
+	 %>
+
+	<div class="article-pre">
+		<img src="<%- img?img[1]:thumbnail %>" style="display: <%- img||thumbnail?'':'none' %>">
+		<div class="article-pre-right">
+
+			<h4><span style="display: <%- item.sticky?'block':'none' %>">置顶</span><a href="<%- url_for(item.path) %>"><%- item.title %></a></h4>
+			<div><%- truncate(strip_html(item.content),{length:70}) %></div>
+			<div class="prePostInf">
+				<span><i class="fa-regular fa-calendar-check"></i> <%- date(item.date,'YYYY年M月D') %></span>
+				
+				<a href="<%- (item.categories.data.length?item.categories.data[0].permalink:'javascript:;') %>"><i class="fa-regular fa-bookmark"></i><%- item.categories.data.length?item.categories.data[0].name:'未分类' %></a>
+			</div>
+		</div>
+	</div>
+	<%}%>
+
+</div>
+
+<script type="text/javascript">
+	 
+</script>

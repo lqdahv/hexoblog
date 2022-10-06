@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title> | 这把火我玩定了</title>
+  <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/themes/prism.min.css">
+  <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/prism.min.js"></script>
+  <script src="/js/pjax.min.js"></script>
+  <script src="/js/sha1.js"></script>
+
+  <style type="text/css">
+
+
+::-webkit-scrollbar {
+    width: 4px;
+    background: #dfe1e3; 
+}
+::-webkit-scrollbar-thumb{
+  background: #9b9b9b;
+  border-radius: 20px;
+}
+pre[class*=language-]::-webkit-scrollbar{
+  height: 4px;
+  }
+.language-css .token.string, .style .token.string, .token.entity, .token.operator, .token.url{
+  background: transparent;
+}
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+
+    font-family: sans-serif !important;
+  }
+  html{
+    background: #cfcfcf;
+    padding: 16px 0;
+    min-height: 100%;
+    display: flex;
+    word-break: break-all;
+
+  }
+  body{
+    margin: 0px auto;
+    width: 772px;
+    max-width: 100%;
+    box-shadow: 0 0 10px #00000012;
+  }
+    #main{
+    overflow-x: hidden;
+    margin: 8px;
+    border-radius: 2px;
+    flex-grow: 1;
+    display: flex;
+
+  }
+  a{
+    text-decoration: none;
+    color: black;
+
+  }
+  ul{
+    list-style: none;
+  }
+
+.contain{
+  border-radius: 2px;
+  width: 100%;
+  flex-shrink: 0;
+
+}
+.cloud{
+      align-self: flex-end;
+      font-size: 13px;
+      white-space: nowrap;
+}
+.inner-main{
+  display: flex;
+      transform: translateX(0px);
+      transition: transform 0.2s;
+      width: 100%;
+}
+.music {
+    background: white;
+    margin-left: 8px;
+    border-radius: 2px;
+    padding: 8px;
+    flex: 0 0 320px;
+    margin-bottom: 8px;
+    overflow-y: auto;
+    height: 650px;
+}
+.music-p{
+  display: none;
+}
+.nav-music{
+  display: flex;
+  align-items: center;
+}
+.nav-music{
+  margin-right: 8px;
+}
+.nav-music>svg{
+  margin-left: 8px;
+
+}
+#postPaginator>div{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 48%;
+    color: #787272;
+}
+#postPaginator>div:last-child{
+  text-align: right;
+}
+svg{
+  cursor: pointer;
+}
+.music li{
+padding: 6px 4px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+}
+.music li:nth-child(even) {
+    background: #f9f9f9;
+}
+.music li>span:first-child {
+    padding-right: 8px;
+    word-break: break-all;
+    font-size: 14px;
+}
+.music li>span:last-child {
+    color: #8f9095;
+    white-space: nowrap;
+    font-size: 13px;
+    }
+  #all{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+background: #f1f1f1;
+
+  }
+  #header{
+  width: 100%;
+    background: white;
+  }
+  #header-img{
+padding: 12px;
+    display: flex;
+background: white;
+justify-content: space-between;
+  }
+  #user{
+        display: flex;
+  }
+  #user-information{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  #user-information>span{
+    margin: 0;
+    font-size: 13px;
+    color: #878787;
+overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  #user>img{
+display: block;
+    height: 56px;
+    width: 56px;
+    margin-right: 12px;
+    border-radius: 2px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  #user-information>a{
+    font-size: 16px;
+    margin-top: -2px;
+  }
+
+  #nav{
+    padding: 0px 12px;
+    font-size: 15px;
+    border-top: 1px solid #f9f9f9;
+    border-bottom: 1px solid whitesmoke;
+    display: flex;
+
+    align-items: center;
+  }
+  #nav>ul{
+
+    display: flex;
+    
+  }
+  #nav>ul>li{
+    position: relative;
+  }
+   #nav>ul ul{
+    position: absolute;
+    background: white;
+  left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    word-break: keep-all;
+    box-shadow: 0px 1px 5px #00000014;
+    z-index: 1;
+   }
+   #nav>ul ul a{
+    padding: 6px 16px;
+    display: block;
+    color: black;
+    font-size: 13px;
+   }
+  #nav ul>li i{
+    margin-right: 4px;
+  }
+   #nav>ul>li>a{
+    color: black;
+    display: block;
+    margin-right: 12px;
+    padding: 8px 0;
+    font-size: 14px;
+  }
+  #nav .navRight{
+    margin-left: auto;
+  }
+
+</style>
+
+
+<style type="text/css">
+
+
+  .article-pre{
+    display: flex;
+    background: white;
+    margin-bottom: 8px;
+    border-radius: 2px;
+    padding: 8px;
+    min-height: 108px;
+  }
+  .article-pre>img{
+    width: 112px;
+    height: 92px;
+    border-radius: 2px;
+    margin-right: 8px;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+  .article-pre-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+   .article-pre-right h4{
+    font-weight: normal;
+
+   }
+  .article-pre-right a{
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+
+  }
+  .article-pre-right>div:nth-of-type(1){
+    font-size: 15px;
+    color: #7f7f85;
+  display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .prePostInf{
+    list-style: none;
+    font-size: 14px;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    color: #7f7f85;
+    align-items: center;
+  }
+  .prePostInf a{
+    color: #8f8f8f;
+  }
+  #paginator{
+list-style: none;
+    margin: 25px 0;
+    padding: 0;
+    text-align: center;
+    font-size: 13px;
+  }
+  #paginator>div{
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
+    position: relative;
+  }
+
+  #paginator a{
+
+    padding: 0 10px;
+    line-height: 26px;
+
+    background: white;
+    color: #444648;
+    white-space: nowrap;
+  }
+
+  #paginator>div>div{
+
+    color: #ffffff;
+    background: #99CCFF;
+    text-align: center;
+    line-height: 24px;
+    font-size: 14px;
+    margin: 0 8px;
+    padding: 0 12px;
+  }
+  #paginator>div>div:last-child{
+        position: absolute;
+    left: 100%;
+  }
+   #paginator>div>*{
+    border-radius: 2px;
+   }
+    #paginator>div>div:first-child{
+        position: absolute;
+    right: 100%;
+  }
+  #paginator svg{
+    color: #958f8d;
+  }
+  .prePostInf>span{
+    margin-right: 8px;
+  }
+
+</style>
+
+<style type="text/css">
+  #footer{
+    text-align: center;
+    font-size: 13px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  .copyright{
+    margin: 12px auto;
+  }
+  .copyright a{
+    color: #e16d20;
+  }
+</style>
+
+
+
+<style type="text/css">
+.search,.search-mobile{
+  display: none;
+}
+.search input,.search-mobile input{
+width: 100%;
+    padding: 8px 12px;
+    border: none;
+    outline: none;
+}
+.nav-right{
+      margin-left: auto;
+    display: flex;
+    align-items: center;
+
+}
+.header-mobile{
+  display: none;
+}
+  .position{
+      font-size: 13px;
+    margin-bottom: 8px;
+  }
+.archiveDes{
+  text-align: center;
+  overflow: hidden;
+    background: white;
+    color: black;
+    margin-bottom: 8px;
+    border-radius: 2px;
+    padding: 8px;
+}
+.archive-title {
+    padding: 20px 0;
+    font-weight: normal;
+    font-size: 20px;
+}
+
+  .gallery{
+    display: flex;
+    flex-wrap: wrap;
+  }
+.adaptive{
+  width: 25%;
+  padding-bottom: 44%;
+  position: relative;
+  height: 0;
+}
+.adaptive>div{
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  padding-bottom: 12px;
+}
+.adaptive:not(:nth-child(4n))>div{
+  padding-right: 8px;
+}
+.adaptive a{
+  display: block;
+  height: 100%;
+}
+.gallery img{
+    width: 100%;
+    height: calc(100% - 60px);
+    border-radius: 2px 2px 0 0;
+    display: block;
+    object-fit: cover;
+    
+}
+.gallery-des{
+  height: 60px;
+  background: white;
+  overflow: hidden;
+  padding: 4px 6px 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.gallery-des p{
+  font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.gallery-des>span{
+  font-size: 12px;
+  color: #9f9f9f;
+  display: flex;
+  align-items: center;
+}
+.gallery-lock{
+    width: 100%;
+    height: 86%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+        background: #ededed;
+}
+.gallery-lock p{
+  font-size: 12px;
+  margin-top: 12px;
+}
+.gallery-pw-input{
+  padding-left: 8px;
+  margin-top: 8px;
+outline: none;
+    border: none;
+    background: transparent;
+        border-left: 1px solid #979797;
+    color: #626262;
+}
+.archiveDes{
+  text-align: center;
+  overflow: hidden;
+    background: white;
+    color: black;
+    margin-bottom: 8px;
+    border-radius: 2px;
+    padding: 8px 0;
+}
+.archive-title {
+    padding: 20px 0;
+    font-weight: normal;
+    font-size: 20px;
+}
+@media screen and (max-width: 512px) {
+  html{
+    padding: 0;
+  }
+  #main{
+    margin: 6px;
+  }
+  .music-p{
+  display: block;
+}
+
+.adaptive{
+  padding-bottom: 80%;
+  width: 50%;
+}
+.adaptive:nth-child(2n)>div{
+  padding-right: 0px;
+}
+    .archiveDes{
+        margin-bottom: 6px;
+    } 
+.nav-right,.nav-music{
+  width: 100%;
+  font-size: 14px;
+}
+.nav-right{
+  padding: 8px 0;
+}
+.article-pre-right a {
+    -webkit-line-clamp: 2;
+
+}
+  .article-pre{
+min-height: 92px;
+    margin-bottom: 6px;
+  }
+
+  .article-pre-right>div:nth-of-type(1){
+    display: none;
+  }
+  .article-pre img{
+    width: 96px;
+    height: 76px;
+  }
+  .article-pre-right h4{
+        overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-top: -2px;
+  }
+  .prePostInf{
+    font-size: 13px;
+  }
+.header-mobile {
+  display: block;
+    box-shadow: 0 0 4px #00000012;
+    z-index: 2;
+    position: sticky;
+    top: 0;
+}
+.header-mobile div.nav-mobile {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 6px;
+    background: white;
+    align-items: center;
+}
+#header {
+    position: fixed;
+    height: 100%;
+    width: 60%;
+    left: -100%;
+    padding-top: 42px;
+    z-index: 1;
+    box-shadow: 1px 0px 5px 0px #0000000f;
+}
+#nav{
+  display: flex;
+  flex-direction: column;
+      align-items: flex-start;
+}
+.nav-right .feather-search,#header.search{
+  display: none;
+}
+#nav>ul ul{
+  box-shadow: none;
+  left: 0px;
+  transform: none;
+  width: 100%;
+  position: initial;
+}
+.cloud{
+  display: none;
+
+}
+#nav>ul ul a{
+  color: #4a4a4a;
+}
+#nav>ul{
+flex-direction: column;
+    align-items: stretch;
+    border-bottom: none;
+    width: 100%;
+}
+.navrightmobile{
+  display: flex;
+}
+#user-information>a{
+  font-size: 14px;
+}
+#nav{
+  border-bottom: none;
+}
+}
+</style>
+<style type="text/css">
+  .lrc{
+          height: 30px;
+    overflow: hidden;
+    color:#a1a1a1;
+    font-size:14px;
+    text-align: center;
+  }
+  .lrc ul{
+        margin-top: 0px;
+    transition: transform 0.5s;
+  }
+  .lrc li{
+    height: 30px;
+    transition: all 0.5s;
+    line-height: 30px;
+  }
+  .lrc-padding{
+padding: 12px;
+    background: transparent;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    max-width: 772px;
+    display: none;
+  }
+  .lyrics{
+    cursor: pointer;
+    margin-top: -1px;
+    margin-left: auto;
+  }
+
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  opacity: 0;
+  transition: opacity .4s linear;
+}
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #7ce5de, #86a8e7);
+  }
+  .loading{
+    opacity: 1;
+    transition: none;
+  }
+     .loading .progress{
+      transition: width .4s ease;
+    }
+</style>
+
+<style type="text/css">
+  #post{
+    background: white;
+    padding: 16px;
+  }
+  #post img{
+    width: 100%;
+    border-radius: 2px;
+    margin: 4px 0;
+  }
+  code:not([class*=language-]){
+padding: 2px 4px;
+    color: #dd4a68;
+    font-size: 14px;
+  }
+.postTitle{
+margin-top: 0;
+    font-weight: normal;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+.post-meta{
+    list-style: none;
+    font-size: 14px;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    color: #7e7e7e;
+    align-items: center;
+}
+.post-meta a,#postPaginator a{
+  color: #7e7e7e;
+}
+.postContent{
+border-top: 1px solid #f3f3f3;
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+    word-break: break-all;
+}
+.postContent a{
+  color: #0000ef;
+}
+.postContent>p{
+  margin: 16px 0;
+}
+blockquote{
+margin: 12px 0 0;
+    border-left: 4px solid #96abef;
+    padding: 8px 16px;
+    color: #8f8f8f;
+}
+#postPaginator{
+display: flex;
+    list-style: none;
+    padding: 0 0 8px;
+    justify-content: space-between;
+    margin: 28px 0 0;
+    font-size: 13px;
+    border-bottom: 1px solid #e3e3e3;
+}
+</style>
+<style type="text/css">
+  .hot{
+    background: white;
+    padding: 8px;
+    line-height: 1.6;
+  }
+  .hot>div{
+    display: flex;
+padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid whitesmoke;
+  }
+  .hot>div>span{
+    font-size: 24px;
+    word-break: keep-all;
+    display: none;
+  }
+   .hot>div>div{
+    font-size: 15px;
+    padding-left: 8px;
+   }
+   .hot-title a{
+    color: red;
+   }
+
+</style>
+<style type="text/css">
+
+@media screen and (min-width: 512px){
+  .folding {
+    margin: 20px auto;
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    transform: rotateZ(45deg);
+    right: 20px;
+    top: 4px;
+    display: none;
+  } 
+}
+  .folding .sk-cube {
+   float: left;
+   width: 50%;
+   height: 50%;
+   position: relative;
+   transform: scale(1.1);
+  }
+  
+  .folding .sk-cube:before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: #333;
+   animation: sk-foldCubeAngle 2.4s infinite linear both;
+   transform-origin: 100% 100%;
+  }
+  
+  .folding .sk-cube2 {
+   transform: scale(1.1) rotateZ(90deg);
+  }
+  
+  .folding .sk-cube3 {
+   transform: scale(1.1) rotateZ(180deg);
+  }
+  
+  .folding .sk-cube4 {
+   transform: scale(1.1) rotateZ(270deg);
+  }
+  
+  .folding .sk-cube2:before {
+   animation-delay: 0.3s;
+  }
+  
+  .folding .sk-cube3:before {
+   animation-delay: 0.6s;
+  }
+  
+  .folding .sk-cube4:before {
+   animation-delay: 0.9s;
+  }
+  
+  @keyframes sk-foldCubeAngle {
+   0%,
+   10% {
+    transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+   }
+   25%,
+   75% {
+    transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
+   }
+   90%,
+   100% {
+    transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
+   }
+  }
+</style>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+ <div class="folding">
+  <div class="sk-cube1 sk-cube"></div>
+  <div class="sk-cube2 sk-cube"></div>
+  <div class="sk-cube4 sk-cube"></div>
+  <div class="sk-cube3 sk-cube"></div>
+ </div>
+  <div id="all">
+    <div class="loading-bar">
+      <div class="progress"></div>
+    </div>
+    <div id="header">
+      <div id="header-img">
+        <div id="user">
+          <img src="https://m.360buyimg.com/babel/jfs/t1/113351/11/28064/7797/63004884E8d55d471/2c2a0baf653ba33b.jpg">
+          <div id="user-information">
+            <a>这把火我玩定了</a>
+            <span>既然我已经踏上这条道路，那么，任何东西都不应妨碍我沿着这条路走下去</span>
+          </div>
+        </div>
+        <div class="cloud"></div>
+      </div>
+      <div>
+        <div id="nav">
+        <ul>
+          
+
+          
+              <li>
+              <a href="/">首页</a>
+            </li>
+          
+            
+
+          
+              <li>
+              <a href="/archives">归档</a>
+            </li>
+          
+            
+
+          
+     
+              <li>
+                <a class="submenu" href="javascript:;">分类</a>
+                <ul>
+                  
+                    <li><a href="/categories/%E5%90%8E%E7%AB%AF%E7%BC%96%E7%A8%8B/">后端编程</a></li>
+                  
+                    <li><a href="/categories/%E5%89%8D%E7%AB%AF%E7%BC%96%E7%A8%8B/">前端编程</a></li>
+                  
+                    <li><a href="/categories/%E4%BC%98%E6%83%A0%E6%B4%BB%E5%8A%A8/">优惠活动</a></li>
+                  
+                </ul>
+              </li>
+    
+
+          
+            
+
+          
+              <li>
+              <a href="/gallery">相册</a>
+            </li>
+          
+            
+
+          
+              <li>
+              <a href="/hotnews">热搜</a>
+            </li>
+          
+            
+        </ul>
+        <div class="nav-right">
+                    <div class="nav-music">
+                        <p class="music-p">音乐</p>
+                        <p class="lyrics">词</p>
+                        <svg class="premusic" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="arcs"><polygon points="19 20 9 12 19 4 19 20"></polygon><line x1="5" y1="19" x2="5" y2="5"></line></svg>
+                        <svg class="pausemusic" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="arcs"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        <svg class="nextmusic" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="arcs"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19"></line></svg>
+                        <svg class="listmusic" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="arcs" class="feather"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+
+
+                    </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </div>
+      </div>
+<div class="search">
+
+   <input type="text" name="s" placeholder="请输入要搜索的内容..." autocomplete="off">
+
+</div>
+
+      </div>
+    </div>
+
+<nav class="header-mobile">
+  <div class="nav-mobile">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="arcs" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+  <span><a href="/">这把火我玩定了</a></span>
+  <div class="navrightmobile">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="arcs" class="feather feather-search-mobile"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+  </div>
+  </div>
+  
+  <div class="search-mobile">
+      <input type="text" name="s" placeholder="请输入要搜索的内容..." autocomplete="off">
+  </div>
+</nav>
+
+<div id="main">
+  <div class="inner-main">
+
+  <div class="contain pjax">
+    
+<style type="text/css">
+
+</style>
+
+
+<div class="search-result">
+    <div class="archiveDes">
+    <h3 class="archive-title">
+    	
+   	</h3>
+    </div>
+</div>
+<script type="text/javascript">
+var img
+var tem=''
+var time
+
+	for(item of JSON.parse(localStorage.getItem('hexo')).data){
+		img=item.content.match(/(?<=<img.*)https?:.*?(?=")/)
+		time=item.url.match(/\d+\/\d+\/\d+\//)
+		console.log(item)
+		tem+=(`<div class="article-pre">
+			<div class="article-pre-right">
+				<h4><a href="${item.url}">${item.title}</a></h4>
+				<div>${item.content.length>67?item.content.slice(0,67)+'...':item.content}</div>
+				<div class="prePostInf">
+					<span><i class="fa-regular fa-calendar-check"></i>`+`${new Date(time).getFullYear()}年${new Date(time).getMonth()+1}月${new Date(time).getDate()}`+`</span>
+					
+					<a href=""><i class="fa-regular fa-bookmark"></i>${item.categories.length!=0?item.categories[0]:'未分类'}</a>
+				</div>
+			</div>
+		</div>`)
+	}
+$('.search-result').append(tem)
+$('.archive-title').text(`包含关键字 ${JSON.parse(localStorage.getItem('hexo')).name} 的文章`)
+</script>
+
+
+
+
+
+
+
+
+  </div>
+
+    <div class="music">
+        <ul> 
+        歌单载入中... 
+        </ul>
+    </div>
+  </div>
+</div>
+
+<div id="footer" data-path="/search/index.html">
+  <p class="copyright">© 2022 这把火我玩定了 由 <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> 强力驱动</p>
+</div>
+
+
+<div class="lrc-padding">
+  <div class="lrc">
+  <ul>
+    
+  </ul>
+  </div>
+</div>
+
+  </div>
+</body>
+</html>
+
+
+
+
+<script type="text/javascript">
+
+
+$('.nav-right .feather-search').click(function(e){
+  e.stopPropagation()
+  $('.search').slideToggle(200)
+})
+$('a[href="/hotnews"]').click(function(e){
+  e.preventDefault()
+  pjaxSend()
+  
+  $.get({
+    url:'https://thepaper.728728.xyz/gethots',
+    success: function(res){
+      var hot=''
+      res.forEach((item,index)=>{
+        hot+=`<div>
+        <span>${(index+1).toString().padStart(2,'0')}</span>
+            <div>
+            <span class="hot-title"><a target="_blank" rel="noopener" href="https://www.thepaper.cn/newsDetail_forward_${item.contId}">${item.title}</a></span>
+            <span>${item.content.length>=150?item.content.slice(0,80)+'...':item.content}</span>
+            </div>
+        </div>`
+      })
+      localStorage.setItem('hotnews',hot)
+      pjax.loadUrl("/hotnews")
+    }
+  })
+  
+})
+//搜索函数........
+var searchLoadingFlag
+$('.search input,.search-mobile input').keyup(function(event){
+  if(event.keyCode==13&&$(this).val()!==''){
+      pjaxSend()
+      $(this).parent().slideUp(200,()=>{
+        $(this).val('')
+      })
+      fetch('/search.json').then(function(data){
+        return data.json()
+      }).then((result)=>{
+        //过滤出文章
+        var data=result.filter(item=>{
+          return item.title.includes($(this).val())||item.content.includes($(this).val())
+        })
+        console.log(data)
+        //存在localstorage本地，然后搜索页在取出来
+        localStorage.setItem('hexo',JSON.stringify({
+          name:$(this).val(),
+          data
+        }))
+        //pjax加载页面
+
+        pjax.loadUrl("/search")
+
+        
+
+      })  
+  }
+})
+   
+var loadingBar = document.querySelector(".loading-bar");
+var progress = document.querySelector(".loading-bar .progress");
+var timer = null;
+document.addEventListener("pjax:send", pjaxSend)
+function pjaxSend(e){
+//如果有进度条就退出
+if(timer) return
+$('.folding').css('display','block')
+  // 进度条默认已经加载 20%
+  var loadingBarWidth = 20;
+  // 进度条的最大增加宽度
+  var MAX_LOADING_WIDTH = 95;
+
+  // 显示进度条
+  loadingBar.classList.add("loading");
+  // 初始化进度条的宽度
+  progress.style.width = loadingBarWidth + "%";
+
+  clearInterval(timer);
+  timer = setInterval(function () {
+    // 进度条的增加速度（可以改为一个随机值，显得更加真实）
+    loadingBarWidth += 3;
+
+    // 当进度条到达 95% 后停止增加
+    if (loadingBarWidth > MAX_LOADING_WIDTH) {
+      loadingBarWidth = MAX_LOADING_WIDTH;
+    }
+
+    progress.style.width = loadingBarWidth + "%";
+  }, 500); 
+}
+
+document.addEventListener("pjax:success", pjaxSuccess)
+function pjaxSuccess(){
+  $('.folding').css('display','')
+  clearInterval(timer);
+  timer=null
+  progress.style.width = "100%";
+  loadingBar.classList.remove("loading");
+
+  setTimeout(function () {
+    progress.style.width = 0;
+  }, 400);
+}
+
+$('.submenu').click((event)=>{
+  event.stopPropagation()
+  $('.submenu+ul').slideToggle(100)
+})
+</script>
+<script type="text/javascript">
+$('.feather-menu').click(function(){
+    if($('#header').css('left')!='0px'){
+        $('#header').animate({'left':0},300)
+    }
+})
+var mobileSearchFlag
+$('body').on('click',function(e){
+    $('.submenu+ul').slideUp(100)
+    if(e.target.className!='submenu'&&$('#header').css('left')=='0px'){
+        $('#header').animate({'left':'-100%'},300)
+    }
+    if($('.inner-main').css('transform')!='matrix(1, 0, 0, 1, 0, 0)'){
+        $('.inner-main').css('transform','translateX(0px)')
+    }
+    $('.search,.search-mobile').slideUp(200,function(){
+      $(this).children().val('')
+    })
+
+})
+$('.feather-search-mobile').on('click',(e)=>{
+  e.stopPropagation()
+    $('.header-mobile .search-mobile').slideToggle(300)
+})
+$('input').click(function(event){
+event.stopPropagation()
+})
+</script>
+
+
+<script type="text/javascript">
+    //设置播放列表高度与左侧文章列高度一致
+var audio =new Audio()
+var playlist=''
+fetch('https://wyyapi.728728.xyz/playlist/track/all?id=312185259').then(function(response){
+    return response.json()
+}).then(function(res){
+
+    res.songs.forEach(function(item){
+        playlist+=`<li data-id=${item.id}><span>${item.name}</span><span>${item.ar[0].name}</span></li>`
+    })
+    $('.music>ul').html(playlist)
+    $('.music li').click(function(e){
+        playindex=$('.music li').index($(this))
+        audio.src=`https://music.163.com/song/media/outer/url?id=${this.dataset.id}.mp3`
+        $('.music li').css({'cssText':'background:','color':''})
+        $(this).css({'cssText':'background: #59a5f1 !important','color':'white'})
+        $('.music li span:last-child').css('color','')
+        $(this).children().eq(1).css('color','white')
+    })
+})
+
+//音乐可播放事件
+var oLRC
+var length
+audio.addEventListener("canplaythrough", event => {
+  audio.play();
+  console.log('播放')
+  $('.lrc ul').empty()
+  $('.lrc ul').css('transform','translateY(0)')
+  audio.removeEventListener('timeupdate', lrcScroll);
+  $.ajax({
+  url:'https://music.163.com/api/song/media?id='+audio.src.match(/(?<=id=)\d+(?=\.)/)[0],
+  dataType:'jsonp',
+  jsonp:'callback',
+  success:function(data){
+    oLRC = {
+    offset: 0, //时间补偿值，单位毫秒，用于调整歌词整体位置
+    ms: [] //歌词数组{t:时间,c:歌词}
+};
+
+function createLrcObj(lrc) {
+  if(lrc.length==0) return;
+    var lrcs = lrc.split('\n');//用回车拆分成数组
+    for(var i in lrcs) {//遍历歌词数组
+      lrcs[i] = lrcs[i].replace(/(^\s*)|(\s*$)/g, ""); //去除前后空格
+        var t = lrcs[i].substring(lrcs[i].indexOf("[") + 1, lrcs[i].indexOf("]"));//取[]间的内容
+        var s = t.split(":");//分离:前后文字
+        if(isNaN(parseInt(s[0]))) { //不是数值
+            for (var i in oLRC) {
+                if (i != "ms" && i == s[0].toLowerCase()) {
+                    oLRC[i] = s[1];
+                }
+            }
+        }else { //是数值
+            var arr = lrcs[i].match(/\[(\d+:.+?)\]/g);//提取时间字段，可能有多个
+            var start = 0;
+            for(var k in arr){
+                start += arr[k].length; //计算歌词位置
+            }
+            var content = lrcs[i].substring(start);//获取歌词内容
+            for (var k in arr){
+                var t = arr[k].substring(1, arr[k].length-1);//取[]间的内容
+                var s = t.split(":");//分离:前后文字
+                oLRC.ms.push({//对象{t:时间,c:歌词}加入ms数组
+                    t: (parseFloat(s[0])*60+parseFloat(s[1])).toFixed(3),
+                    c: content
+                });
+            }
+        }
+    }
+    oLRC.ms.sort(function (a, b) {//按时间顺序排序
+        return a.t-b.t;
+    });
+    oLRC.ms=oLRC.ms.filter(item=>{
+      return item.c!==''
+    })
+    length = oLRC.ms.length
+    var lrc=''
+    oLRC.ms.forEach(item=>{
+      lrc+='<li>'+item.c+'</li>'
+    })
+    $('.lrc ul').append(lrc)
+    
+
+}
+
+createLrcObj(data.lyric);
+
+
+audio.addEventListener('timeupdate', lrcScroll);
+
+}
+})
+});
+//音乐自然结束事件
+audio.addEventListener('ended', (event) => {
+    nextmusic()
+    console.log('结束')
+    
+});
+
+
+function lrcScroll(){
+  var index=oLRC.ms.findIndex(item=>{
+    return item.t>audio.currentTime
+  })
+  var progress=((index-1)/(length))*100
+  $('.lrc li').css({
+    color:'',
+    fontSize:'',
+    'background-image': '',
+    '-webkit-background-clip': '',
+    '-webkit-text-fill-color': ''
+  })
+  $('.lrc li').eq(index!=-1?index-1:length-1).css({
+    fontSize:'16px',
+    'background-image': '-webkit-linear-gradient(#fb1d98,red)',
+    '-webkit-background-clip': 'text',
+    '-webkit-text-fill-color': 'transparent'
+  })
+ $('.lrc ul').css('transform','translateY(-'+(index!=-1?progress:((length-1)/length)*100)+'%)')
+
+}
+function nextmusic(){
+    if(playindex==$('.music li').length-1){
+        //最后一首时跳转到第一首
+        playindex=0
+    }else{
+        //下一个索引
+        playindex++
+    }
+
+    //获取下一首的data-id(音乐id)
+    var datasetId=$('.music li').eq(playindex).data('id')
+    //下一首歌曲链接
+    audio.src=`https://music.163.com/song/media/outer/url?id=${datasetId}.mp3`
+
+    //设置下一首歌曲样式
+    $('.music li').css({'cssText':'background:','color':''})
+    //nth-child(第一个元素是1，而索引是0)，所以在上面playindex++后，还要再+1
+    $(`.music li:nth-child(${playindex+1})`).css({'cssText':'background: #59a5f1 !important','color':'white'})
+    $('.music li span:last-child').css('color','')
+    $(`.music li:nth-child(${playindex+1}) span:last-child`).css('color','white')
+}
+
+audio.addEventListener('pause', (event) => {
+  $('.playmusic').replaceWith('<svg class="pausemusic" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="arcs"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>')
+});
+audio.addEventListener('play', (event) => {
+  $('.pausemusic').replaceWith('<svg class="playmusic" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="arcs"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>')
+});
+audio.addEventListener('error', (event) => {
+    nextmusic()
+});
+$('.nextmusic').click(function(){
+    nextmusic()
+
+})
+$('.premusic').click(function(){
+    if(playindex==0){
+        //最后一首时跳转到第一首
+        console.log('这是第一首了')
+        return
+    }else{
+        //下一个索引
+        playindex--
+    }
+
+    //获取下一首的data-id(音乐id)
+    var datasetId=$('.music li').eq(playindex).data('id')
+    //下一首歌曲链接
+    audio.src=`https://music.163.com/song/media/outer/url?id=${datasetId}.mp3`
+
+    //设置下一首歌曲样式
+    $('.music li').css({'cssText':'background:','color':''})
+    //nth-child(第一个元素是1，而索引是0)，所以在上面playindex++后，还要再+1
+    $(`.music li:nth-child(${playindex+1})`).css({'cssText':'background: #59a5f1 !important','color':'white'})
+    $('.music li span:last-child').css('color','')
+    $(`.music li:nth-child(${playindex+1}) span:last-child`).css('color','white')
+
+})
+$(document).on('click','.nav-music .premusic+svg',function(){
+    if(!audio.src) return
+    if(audio.paused){
+        audio.play()
+    }else{
+        audio.pause()
+    }
+})
+
+$('.listmusic').click(function(){
+    if($('.inner-main').css('transform')=='matrix(1, 0, 0, 1, 0, 0)'){
+        $('.inner-main').css('transform','translateX(-328px)')
+    }
+})
+
+        $.ajax({
+        url:'https://vv.video.qq.com/checktime?otype=json',
+        dataType:'jsonp',
+        jsonp:'callback',
+        success:function(data){
+            fetch('https://free-api.heweather.net/s6/weather/now?location='+data.ip+'&key=22e1f5e50f9c4da1964a62ef54d3e64a').then(function(response){
+                return response.json()
+            }).then(function(res){
+                if(res.HeWeather6[0].status=='ok'){
+                    $('.cloud').text(res.HeWeather6[0].basic.location+' · '+res.HeWeather6[0].now.cond_txt)
+                }else{
+                    $('.cloud').text(res.HeWeather6[0].status)
+                }
+                
+            })
+        }
+    })
+var lyrics    
+$('.lyrics').click(function(){
+  if (lyrics){
+    $(this).css('color','')
+    lyrics=false
+    $('.lrc-padding').hide()
+  }else{
+    $(this).css('color','red')
+    lyrics=true
+    $('.lrc-padding').show()
+  }
+  
+})
+
+
+</script>
+
+<script>
+var pjax = new Pjax({
+  selectors: [
+    "title",
+    ".pjax"
+  ],
+  cacheBust:false
+})
+ </script>

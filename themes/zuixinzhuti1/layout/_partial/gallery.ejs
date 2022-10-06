@@ -1,0 +1,64 @@
+<% var gallery=site.pages.filter(post=>{
+	return /^(gallery\/[^index.md])/.test(post.source)
+})%>
+
+<%if(/^(gallery\/index.html)/.test(page.path)){%>
+<div class="gallery">
+<%for(var post of gallery.data){
+var a=1
+	var img=post.content.match(/<img src="(.*?)"/)[1]%>
+
+	<div class="adaptive">
+		<div>
+			<a href="<%= false?'javascript:void(0);':url_for(post.path) %>">
+				<%if(true){%>
+					<img class="gallery-img" src="<%= img %>">
+				<%}else{%>
+				<div class="gallery-lock">
+					<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40 23V14L31 4H10C8.89543 4 8 4.89543 8 6V42C8 43.1046 8.89543 44 10 44H22" stroke="#555454" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/><rect x="28" y="34" width="14" height="8" fill="none" stroke="#555454" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/><path d="M38 34V31C38 29.3431 36.6569 28 35 28C33.3431 28 32 29.3431 32 31V34" stroke="#555454" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/><path d="M30 4V14H40" stroke="#555454" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/></svg>
+					<p>已加密,或输入密码</p>
+					<input type="text" name="pw" class="gallery-pw-input" autocomplete=off>
+				</div>
+				<%}%>
+
+			
+			<div class="gallery-des">
+			<p><%= post.title %></p>
+			<span>
+
+
+				<span><%= date(post.date,'YYYY年M月D日') %></span></span>
+			</div>
+		</a>
+		</div>
+	</div>
+<%}%>
+</div>
+<%}else{%>
+<div id="post">
+<div class="postHeader">
+	<h1 class="postTitle"><%- page.title %></h1>
+	<p class="post-meta"><span><%- date(page.date,'YYYY年M月D日') %></span></p>
+</div>
+	<div class="postContent"><%- page.content %></div>
+    <div id="postPaginator">
+      <div>
+      	
+        <a href="<%- full_url_for(page.prev?page.prev.permalink:'javascript:;') %>"><span><%- page.prev?page.prev.title:'已经没有了!!!' %></span></a>
+      </div>
+      <div>
+      	
+        <a href="<%- full_url_for(page.next?page.next.permalink:'javascript:;') %>"><span><%- page.next?page.next.title:'已经没有了!!!' %> </span></a>
+
+    </div>
+    </div>
+</div>
+
+<%}%>
+
+
+<script type="text/javascript">
+
+	$('.gallery-pw-input').keyup(function(){
+	})
+</script>

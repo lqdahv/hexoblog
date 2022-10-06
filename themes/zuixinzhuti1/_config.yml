@@ -1,0 +1,31 @@
+
+#用户信息
+title: 这把火我玩定了
+description: 既然我已经踏上这条道路，那么，任何东西都不应妨碍我沿着这条路走下去
+
+
+# 菜单栏，|| 后面是图标
+menu:
+  首页: /
+  归档: /archives
+  分类: /categories
+  相册: /gallery
+  热搜: /hotnews
+
+rss: /atom.xml
+
+
+
+
+# widget behavior
+archive_type: 'monthly'
+show_count: false
+
+# Miscellaneous
+google_analytics:
+gauges_analytics:
+favicon: /favicon.png
+twitter:
+google_plus:
+fb_admins:
+fb_app_id:

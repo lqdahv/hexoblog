@@ -1,0 +1,7 @@
+<%if(page.title=='search'){%>
+<%- partial('_partial/search') %>
+<%}else if(/^(gallery\/)/.test(page.path)){%>
+<%- partial('_partial/gallery') %>
+<%}else if(page.title=='hotnews'){%>
+<%- partial('_partial/hot') %>
+<%}%>

@@ -1,0 +1,21 @@
+
+<div id="post">
+<div class="postHeader">
+	<h1 class="postTitle"><%- page.title %></h1>
+
+	<p class="post-meta"><span><%- date(page.date,'YYYY年M月D日') %></span><span><a href="<%- (page.categories.data.length?page.categories.data[0].permalink:'javascript:;') %>">&nbsp;<%- page.categories.data.length?page.categories.data[0].name:'未分类' %></a></p>
+</div>
+	<div class="postContent"><%- page.content %></div>
+    <div id="postPaginator">
+      <div>
+      	
+        <a href="<%- url_for(page.prev?page.prev.path:'javascript:;') %>"><span><%- page.prev?page.prev.title:'已经没有了!!!' %></span></a>
+      </div>
+      <div>
+      	
+        <a href="<%- url_for(page.next?page.next.path:'javascript:;') %>"><span><%- page.next?page.next.title:'已经没有了!!!' %> </span></a>
+
+    </div>
+    </div>
+</div>
+

@@ -1,0 +1,156 @@
+<style type="text/css">
+	.archives{
+		padding: 8px;
+		background: white;
+	}
+    
+	.archives>div:first-child{
+    height: 120px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    text-align: center;
+    color: white;
+    border-radius: 2px 2px 0 0;
+    overflow: hidden;
+	}
+	.archives>div h2{
+		font-weight: normal;
+		margin: 20px 0 12px 0;
+	}
+#archives .year {
+    font-weight: normal;
+    font-size: 17px;
+    padding-left: 8px;
+    margin: 12px 0;
+}
+#archives>ul {
+	padding-left: 12px;
+    margin-left: 12px;
+    border-left: 1px solid #a4b8e9;
+}
+#archives>ul>li,#archives>ul>li>span{
+	position: relative;
+}
+
+#archives li li {
+    font-size: 14px;
+    padding: 8px 0;
+    color: #6a6a6a;
+    display: flex;
+    justify-content: space-between;
+}
+#archives ul ul{
+	padding-left: 24px;
+}
+#archives a {
+
+    color: #6a6a6a;
+    }
+  #archives li li span {
+    word-break: keep-all;
+}
+#archives>ul>li>span:before {
+    content: '1';
+    position: absolute;
+    left: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 20px;
+    color: transparent;
+    width: 7px;
+    height: 7px;
+    background: #b9c5f1;
+}
+.archives>div{
+	margin-bottom: 24px;
+	}
+.archives>div>h3{
+font-weight: normal;
+    padding-left: 8px;
+    font-size: 16px;
+    margin: 12px 0;
+}
+.archives>div>h3:before {
+    content: '1';
+    display: inline-block;
+    background: #6f85f5;
+    width: 3px;
+    color: transparent;
+    line-height: 1.15;
+    margin-right: 8px;
+}
+.tags>ul{
+list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    font-size: 14px;
+    flex-wrap: wrap;
+}
+.tags>ul>li{
+
+    padding: 4px 8px;
+}
+
+</style>
+
+<%
+   		var data = page.posts.data
+        var year=0; 
+        var mon=0;
+        var year_tmp;
+        var mon_tmp;
+        var output = '<div id="archives">';
+        data.forEach((item,index)=>{
+            year_tmp = date(item.date,'YYYY');
+            mon_tmp = date(item.date,'MM');
+            if(year != year_tmp&&mon == mon_tmp){
+            	output += '</ul></li></ul>'
+        	 	year=0; 
+    			mon=0
+            }else{
+	            if (mon != mon_tmp && mon > 0) output += '</ul></li>';
+	            if (year != year_tmp && year > 0) output += '</ul>';	
+            }
+
+            if (year != year_tmp) {
+                year = year_tmp;
+                output += '<h3 class="year">'+ year +' 年</h3><ul>'; //输出年份
+            }
+
+            if (mon != mon_tmp) {
+                mon = mon_tmp;
+                output += '<li><span>'+ mon +' 月</span><ul>'; //输出月份
+            }
+
+
+            output += '<li><a href="'+url_for(item.path) +'">'+ item.title +'</a><span>'+date(item.date,'DD')+'日</span></li>'; //输出文章日期和标题
+        })
+        output+='</ul></li></ul></div>'
+ %>
+
+ <%
+ 	var tags=site.tags.data
+ %>
+<div class="archives">
+<div style="background-image: url('https://img1.imgtp.com/2022/08/04/ESPp6uHh.jpg')">
+    <h2>文章归档</h2>
+    <p>TOTAL OF <%= site.posts.data.length %> POSTS</p>
+</div>
+
+<div class="tags">
+<h3>标签</h3>
+<ul>
+<% tags.forEach(tag=>{ %>
+<li><a href="<%= url_for(tag.path) %>"> #<%=tag.name%></a></li>
+<% }) %>
+</ul>
+</div>
+
+<div>
+<h3>归档</h3>
+<%- output %>
+</div>
+
+</div>

@@ -1,0 +1,40 @@
+<style type="text/css">
+
+</style>
+
+
+<div class="search-result">
+    <div class="archiveDes">
+    <h3 class="archive-title">
+    	<%- page.category %>
+   	</h3>
+    </div>
+</div>
+<script type="text/javascript">
+var img
+var tem=''
+var time
+
+	for(item of JSON.parse(localStorage.getItem('hexo')).data){
+		img=item.content.match(/(?<=<img.*)https?:.*?(?=")/)
+		time=item.url.match(/\d+\/\d+\/\d+\//)
+		tem+=(`<div class="article-pre">`+(img?`<img src="${img[0]}" />`:'')+
+			`<div class="article-pre-right">
+				<h4><a href="${item.url}">${item.title}</a></h4>
+				<div>${item.content.length>67?item.content.replace(/<[^>]+>/g, '').slice(0,67)+'...':item.content.replace(/<[^>]+>/g, '')}</div>
+				<div class="prePostInf">
+					<span><i class="fa-regular fa-calendar-check"></i>`+`${new Date(time).getFullYear()}年${new Date(time).getMonth()+1}月${new Date(time).getDate()}`+`</span>
+					
+					<a href=""><i class="fa-regular fa-bookmark"></i>${item.categories.length!=0?item.categories[0]:'未分类'}</a>
+				</div>
+			</div>
+		</div>`)
+	}
+$('.search-result').append(tem)
+$('.archive-title').text(`包含关键字 ${JSON.parse(localStorage.getItem('hexo')).name} 的文章`)
+</script>
+
+
+
+
+
