@@ -7,11 +7,11 @@ tags:
 - node.js
 - xml
 title: Node.js PHP处理XML数据
-updated: '2022-10-06 21:53:17'
+updated: '2022-10-07 20:57:02'
 ---
 > 现在XML数据相对来说比较少，微信公众号发送的信息就是XML格式的，影视采集站是json和xml
 
-### Node.js11
+### Node.js
 
 [express-xml-bodyparser][1]模块会把请求体中的xml转为json格式，之后用req.body就能取到数据了
 
